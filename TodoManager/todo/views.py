@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from .forms import TaskForm, TagForm
 from .models import Task, Tag
 
+
 class TaskListView(ListView):
     model = Task
     template_name = 'task_list.html'
@@ -12,10 +13,12 @@ class TaskListView(ListView):
     def get_queryset(self):
         return Task.objects.order_by('is_done', '-created_at')
 
+
 class TaskCreateView(CreateView):
     form_class = TaskForm
     template_name = 'todo/task_form.html'
     success_url = reverse_lazy('home')
+
 
 class TaskUpdateView(UpdateView):
     model = Task
@@ -23,10 +26,12 @@ class TaskUpdateView(UpdateView):
     template_name = 'todo/task_form.html'
     success_url = reverse_lazy('home')
 
+
 class TaskDeleteView(DeleteView):
     model = Task
     template_name = 'todo/task_confirm_delete.html'
     success_url = reverse_lazy('home')
+
 
 class TaskToggleCompleteView(RedirectView):
     url = reverse_lazy('home')
@@ -36,6 +41,7 @@ class TaskToggleCompleteView(RedirectView):
         task.is_done = not task.is_done
         task.save()
         return super().get(request, *args, **kwargs)
+
 
 class TagListView(ListView):
     model = Tag
@@ -51,11 +57,14 @@ class TagCreateView(CreateView):
     template_name = 'todo/tag_form.html'
     success_url = reverse_lazy('tag-list')
 
+
 class TagUpdateView(UpdateView):
     model = Tag
     form_class = TagForm
     template_name = 'todo/tag_form.html'
     success_url = reverse_lazy('tag-list')
+
+
 class TagDeleteView(DeleteView):
     model = Tag
     template_name = 'todo/tag_confirm_delete.html'
