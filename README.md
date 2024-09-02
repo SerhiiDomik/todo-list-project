@@ -28,9 +28,13 @@ This is a simple task management application built with Django, allowing users t
      - **Delete**: A link to delete the task.
      - **Complete/Undo**: A button to toggle the task's completion status. If the task is incomplete, the button shows "Complete"; if completed, it shows "Undo".
 
+![home_page.png](home_page.png)
+
 2. **Tag List Page** (`/tags/`):
    - **Tag Table**: Displays a list of all tags with options to edit and delete each tag.
    - **Add Tag Button**: A button to add a new tag.
+
+![tag_list_page.png](tag_list_page.png)
 
 ### Additional Pages
 
